@@ -1,0 +1,2 @@
+wtfjs - github repository za tips
+lodash
