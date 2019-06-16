@@ -1,0 +1,4 @@
+1. Napraviti modul Osoba koja ima inicijalne parametre: Ime, prezime, datum rodjenja i mjesto/grad stanovanja. Parametri moraju biti prazni stringovi.
+2. Napraviti setter funkcije za postavljanje svakog parametra u modulu Osoba.
+3. Napraviti getter funkcije za dohvacanje svakog parametra u modulu Osoba. Napraviti funkciju za dohvacanje godina starosti pomocu parametra datuma rodjenja
+* Bonus: Istrazite https://www.distance24.org/api.xhtml te pokusajte napraviti funkciju za dohvacanje udaljenosti izmedju glavnog grada Bosne i Hercegovine (Sarajevo) i grada unesenog kao parametar mjesta stanovanja. Pazite na mjernu jedinicu udaljenosti.
