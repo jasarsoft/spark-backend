@@ -33,6 +33,19 @@ exports.connectDB = function(req, res) {
   })
 }
 
+exports.selectCommentByUser = function(user_id){
+  let select = 'SELECT * FROM ?? WHERE ?? = ?';
+  let query = mysql.format(select, ["comments", "user_id", user_id]);
+  pool.query(query, (error, data) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+      return data;
+    }
+  });
+}
+
 exports.addComment = function(data) {
   let insert = 'INSERT INTO ?? (??, ??, ??) VALUES (?, ?, ?)';
   let query = mysql.format(insert, ["comments", "content", "topic_id", "user_id", data.content, data.topic_id, data.user_id]);
@@ -45,3 +58,4 @@ exports.addComment = function(data) {
     console.log(responese.insertId);
   });
 }
+
