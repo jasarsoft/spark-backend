@@ -33,6 +33,15 @@ exports.connectDB = function(req, res) {
   })
 }
 
-exports.registration = function(req, res) {
-  pool.query("SELECT * from ")
+exports.addComment = function(data) {
+  let insert = 'INSERT INTO ?? (??, ??, ??) VALUES (?, ?, ?)';
+  let query = mysql.format(insert, ["comments", "content", "topic_id", "user_id", data.content, data.topic_id, data.user_id]);
+  pool.query(query, (error, responese) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    console.log(responese.insertId);
+  });
 }
