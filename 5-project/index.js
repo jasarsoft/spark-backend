@@ -16,5 +16,9 @@ app.listen(port,() => {
 
     // mysql.selectCommentByUser(2);
 
-    
+    mysql.updateComment({
+        'content': 'Ovo je izmjenjen komentar',
+        'topic_id': '1',
+        'user_id': '2'
+    });
 });

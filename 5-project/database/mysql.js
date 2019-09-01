@@ -49,13 +49,25 @@ exports.selectCommentByUser = function(user_id){
 exports.addComment = function(data) {
   let insert = 'INSERT INTO ?? (??, ??, ??) VALUES (?, ?, ?)';
   let query = mysql.format(insert, ["comments", "content", "topic_id", "user_id", data.content, data.topic_id, data.user_id]);
-  pool.query(query, (error, responese) => {
+  pool.query(query, (error, response) => {
     if (error) {
       console.error(error);
       return;
     }
 
-    console.log(responese.insertId);
+    console.log(response.insertId);
   });
 }
 
+exports.updateComment = function(data) {
+  let update = 'UPDATE ?? SET ?? = ? WHERE ?? = ? && ?? = ?';
+  let query = mysql.format(update, ["comments", "content", data.content, "topic_id", data.topic_id, "user_id", data.user_id]);
+
+  pool.query(query, (error, response) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(response.affectedRows);
+    }
+  });
+}
