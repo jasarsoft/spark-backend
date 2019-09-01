@@ -71,3 +71,16 @@ exports.updateComment = function(data) {
     }
   });
 }
+
+exports.deleteComment = function(data) {
+  let del = 'DELETE FROM ?? WHERE ?? = ? && ?? = ?';
+  let query = mysql.format(del, ["comments", "topic_id", data.topic_id, "user_id", data.user_id]);
+
+  pool.query(query, (error, response) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(response.affectedRows);
+    }
+  });
+}
